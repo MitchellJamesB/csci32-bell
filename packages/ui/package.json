@@ -13,10 +13,12 @@
     "./styles.css": "./dist/index.css",
     "./*": "./dist/*.js",
     "./button": "./src/button.tsx",
-    "./size": "./src/size.tsx",
+    "./size": "./src/size.ts",
+    "./tokens": "./src/tokens.ts",
+    "./input": "./src/input.tsx",
     "./card": "./src/card.tsx",
     "./code": "./src/code.tsx",
-    "./variant": "./src/variant.tsx"
+    "./variant": "./src/variant.ts"
   },
   "scripts": {
     "build:styles": "tailwindcss -i ./src/styles.css -o ./dist/index.css",
