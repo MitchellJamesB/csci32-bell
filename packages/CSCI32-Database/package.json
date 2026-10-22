@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "type": "module",
   "main": "index.js",
+  "exports": {
+    ".": "./src/client.ts"
+  },
   "license": "MIT",
   "devDependencies": {
     "@types/node": "^26.6.4",
