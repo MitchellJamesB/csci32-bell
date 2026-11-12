@@ -3,11 +3,7 @@ import jwt from 'jsonwebtoken'
 import bcrypt from 'bcryptjs'
 
 function readPrivateKey(): string {
-  const key = process.env.PRIVATE_KEY
-  if (!key) {
-    throw new Error('Missing PRIVATE_KEY in .env')
-  }
-  return key
+  return fs.readFileSync(new URL('../../../../packages/jwt/ec_private.pem', import.meta.url), 'utf8')
 }
 
 export async function hashPassword(plain: string): Promise<string> {
@@ -29,4 +25,8 @@ export function signToken(claims: Record<string, any>): string {
     issuer: iss,
     header: { typ: 'JWT' },
   } as jwt.SignOptions)
+}
+
+export async function comparePassword(plain: string, hash: string): Promise<boolean> {
+  return bcrypt.compare(plain, hash)
 }
